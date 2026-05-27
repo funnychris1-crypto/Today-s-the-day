@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Polkadot Wallet Dashboard</title>
+    <link rel="stylesheet" href="polkadot-style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="dashboard">
+            <!-- Header -->
+            <div class="header">
+                <div class="header-content">
+                    <h1>🔗 Polkadot Wallet Dashboard</h1>
+                    <p class="subtitle">Monitor all your DOT wallets and assets</p>
+                </div>
+                <div class="primary-wallet">
+                    <label>Primary Consolidation Address:</label>
+                    <div class="primary-display">
+                        <span id="primaryAddress">14QC8hndA6wZnEDCyFBjYvHcavXKXgA8Cfzi5zWjWxW1mgLC</span>
+                        <button id="copyPrimaryBtn" class="copy-icon">📋</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Portfolio Summary -->
+            <div class="portfolio-summary">
+                <div class="summary-card">
+                    <div class="summary-label">Total DOT Balance</div>
+                    <div class="summary-value" id="totalDOT">0.00</div>
+                    <div class="summary-usd" id="totalUSD">$0.00</div>
+                </div>
+                <div class="summary-card">
+                    <div class="summary-label">Active Wallets</div>
+                    <div class="summary-value" id="walletCount">0</div>
+                </div>
+                <div class="summary-card">
+                    <div class="summary-label">Assets on Asset Hub</div>
+                    <div class="summary-value" id="assetCount">0</div>
+                </div>
+                <div class="summary-card">
+                    <div class="summary-label">DOT Price</div>
+                    <div class="summary-value" id="dotPrice">$0.00</div>
+                    <div class="summary-change" id="priceChange">+0.00%</div>
+                </div>
+            </div>
+
+            <!-- Add Wallet Section -->
+            <div class="add-wallet-section">
+                <h2>Add Wallet Address</h2>
+                <div class="add-wallet-form">
+                    <input 
+                        type="text" 
+                        id="walletInput" 
+                        placeholder="Enter Polkadot wallet address (starts with 1)"
+                        maxlength="47"
+                    >
+                    <input 
+                        type="text" 
+                        id="walletLabel" 
+                        placeholder="Wallet name/label (optional)"
+                    >
+                    <button id="addWalletBtn" class="btn-primary">Add Wallet</button>
+                </div>
+                <div id="addError" class="error-message hidden"></div>
+            </div>
+
+            <!-- Wallets List -->
+            <div class="wallets-section">
+                <h2>Your Wallets</h2>
+                <div id="walletsList" class="wallets-grid">
+                    <div class="no-wallets">
+                        <p>No wallets added yet. Add one to get started!</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Transactions History -->
+            <div class="transactions-section">
+                <h2>Recent Transactions</h2>
+                <div class="transactions-filters">
+                    <select id="txWalletFilter" class="filter-select">
+                        <option value="">All Wallets</option>
+                    </select>
+                    <button id="refreshTxBtn" class="btn-secondary">Refresh 🔄</button>
+                </div>
+                <div id="transactionsList" class="transactions-list">
+                    <div class="no-transactions">
+                        <p>No transactions yet.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Asset Hub Section -->
+            <div class="assets-section">
+                <h2>Asset Hub Assets</h2>
+                <div id="assetsList" class="assets-grid">
+                    <div class="no-assets">
+                        <p>No assets found on Asset Hub.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Loading Spinner -->
+            <div id="loadingSpinner" class="loading-spinner hidden">
+                <div class="spinner"></div>
+                <p>Loading data from Polkadot blockchain...</p>
+            </div>
+
+            <!-- Export/Import -->
+            <div class="data-section">
+                <h2>Data Management</h2>
+                <div class="data-buttons">
+                    <button id="exportBtn" class="btn-secondary">Export Wallets 📥</button>
+                    <button id="importBtn" class="btn-secondary">Import Wallets 📤</button>
+                    <button id="clearBtn" class="btn-danger">Clear All Data 🗑️</button>
+                </div>
+                <input type="file" id="importFile" accept=".json" style="display: none;">
+            </div>
+
+            <!-- Info Section -->
+            <div class="info-section">
+                <h3>ℹ️ How to Use</h3>
+                <ul>
+                    <li>Add your Polkadot wallet addresses to monitor them</li>
+                    <li>View real-time DOT balances and other assets on Asset Hub</li>
+                    <li>Track recent transactions for each wallet</li>
+                    <li>Data is stored locally in your browser (never uploaded to servers)</li>
+                    <li>To transfer funds: Use official Polkadot.js wallet extension</li>
+                    <li>Export your wallet list for backup</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <script src="polkadot-script.js"></script>
+</body>
+</html>
