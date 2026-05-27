@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Random Joke Generator</title>
+    <link rel="stylesheet" href="joke-style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="joke-app">
+            <!-- Header -->
+            <div class="app-header">
+                <h1>😂 Joke Generator</h1>
+                <p class="subtitle">Get a good laugh</p>
+            </div>
+
+            <!-- Main Content -->
+            <div class="content">
+                <!-- Joke Display -->
+                <div id="jokeCard" class="joke-card hidden">
+                    <div class="joke-type" id="jokeType"></div>
+                    <div class="joke-text" id="jokeText"></div>
+                    <div id="punchline" class="punchline hidden"></div>
+                </div>
+
+                <!-- Loading State -->
+                <div id="loadingSpinner" class="loading-spinner hidden">
+                    <div class="spinner"></div>
+                    <p>Fetching a joke for you...</p>
+                </div>
+
+                <!-- Error State -->
+                <div id="errorMessage" class="error-message hidden"></div>
+
+                <!-- Welcome State -->
+                <div id="welcomeMessage" class="welcome-message">
+                    <p>Click the button below to get a random joke!</p>
+                </div>
+
+                <!-- Category Selection -->
+                <div class="category-section">
+                    <label for="categorySelect">Choose Category (Optional):</label>
+                    <select id="categorySelect" class="category-select">
+                        <option value="">Any Category</option>
+                        <option value="general">General</option>
+                        <option value="programming">Programming</option>
+                        <option value="knock-knock">Knock Knock</option>
+                    </select>
+                </div>
+
+                <!-- Joke Type Selection -->
+                <div class="type-section">
+                    <label>Joke Type:</label>
+                    <div class="type-options">
+                        <label class="radio-label">
+                            <input type="radio" name="jokeType" value="any" checked>
+                            Any
+                        </label>
+                        <label class="radio-label">
+                            <input type="radio" name="jokeType" value="single">
+                            Single (One-liner)
+                        </label>
+                        <label class="radio-label">
+                            <input type="radio" name="jokeType" value="twopart">
+                            Two-Part (Setup + Punchline)
+                        </label>
+                    </div>
+                </div>
+
+                <!-- Control Buttons -->
+                <div class="button-group">
+                    <button id="getJokeBtn" class="btn btn-primary">Get a Joke 🎉</button>
+                    <button id="shareBtn" class="btn btn-secondary hidden">Share 📤</button>
+                    <button id="copyBtn" class="btn btn-secondary hidden">Copy 📋</button>
+                    <button id="revealBtn" class="btn btn-secondary hidden">Reveal Punchline 😄</button>
+                </div>
+
+                <!-- Stats -->
+                <div id="stats" class="stats hidden">
+                    <p>Jokes fetched: <span id="jokeCount">0</span></p>
+                    <p>Favorites: <span id="favoriteCount">0</span></p>
+                </div>
+
+                <!-- Favorites Section -->
+                <div class="favorites-section">
+                    <div class="favorites-header">
+                        <h3>⭐ Favorite Jokes</h3>
+                        <button id="toggleFavoritesBtn" class="toggle-btn">▼</button>
+                    </div>
+                    <div id="favoritesList" class="favorites-list hidden">
+                        <div id="noFavorites" class="no-favorites">
+                            <p>No favorite jokes yet. Click the heart to add one!</p>
+                        </div>
+                        <ul id="favoritesUl" class="favorites-ul"></ul>
+                    </div>
+                    <button id="clearFavoritesBtn" class="btn btn-danger hidden">Clear All Favorites</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="joke-script.js"></script>
+</body>
+</html>
